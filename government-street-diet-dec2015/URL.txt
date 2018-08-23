@@ -1,5 +1,4 @@
 
 http://jtatfranklin.github.io/maps/government-street-diet-dec2015
 
-But it won't open on most browsers or phones because of the lack of https website security certificate. The browsers are blocking the popups code from Leaflet, so image isn't displayed.
-Can override on IE with a single button click, but more challenging on Chrome or on smartphones.
+locally hosting the old version of leaflet within github pages solved the https security problem.
