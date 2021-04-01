@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title></title>
+	<meta content='initial-scale=1,maximum-scale=1,user-scalable=no' name='viewport'>
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js'>
+	</script>
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css' rel='stylesheet'>
+	<style>
+	     body {
+	       margin: 0;
+	       padding: 0;
+	     }
+
+	     #map {
+	       position: absolute;
+	       top: 0;
+	       bottom: 0;
+	       width: 100%;
+	     }
+	     
+	     #plate {
+	 text-align: center;
+	 color:#fff;
+	 padding:15px;
+	 background-color: #006446;
+	 box-shadow: 5px 5px 5px #888888;
+	 border: 5px solid;
+	 border-style: double;
+	 border-radius: 20px;
+	 position: absolute;
+	font: 20px arial, sans-serif;
+	top: 10px;
+	right: 25px;
+	width: 500px;
+	overflow: auto;
+	}
+
+	       .map-overlay {
+	           position: absolute;
+	           bottom: 0;
+	           right: 0;
+	           background: #E0E4EA;
+	           margin-right: 20px;
+	           font-family: Arial, sans-serif;
+	           overflow: auto;
+	           border-radius: 3px;
+	       }
+
+
+	     #legend {
+	           padding: 10px;
+	           box-shadow: 0 1px 2px rgba(0,0,0,0.10);
+	           line-height: 18px;
+	           height: 115px;
+	           margin-bottom: 40px;
+	           width: 100px;
+	       }
+
+	     
+	</style>
+</head>
+<body>
+	<div id='map'></div>
+	<div id='plate'>
+		University Lakes
+	</div>
+	<script>
+	 mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbmthZG1pbiIsImEiOiJjajhvbW51NHYwNWI2MzNyejV4Y2s0aDN4In0.FSOtZl6iInZhjDUiS6Xscg';
+	 var map = new mapboxgl.Map({
+	   container: 'map', // container id
+	   style: 'mapbox://styles/gmapsmania/ckeupgp365g3q19llpg7l4lin', // stylesheet location
+	   center: [-91.167229,30.417593], // starting position [lng, lat] University Lakes
+	   zoom: 17 // starting zoom
+	 });
+	 
+	 var nav = new mapboxgl.NavigationControl();
+	 map.addControl(nav, 'top-left');
+
+
+	 map.on('load', function() {
+	   map.addLayer({
+	     id: 'san',
+	     type: 'circle',
+	     source: {
+	       type: 'vector',
+	       url: 'mapbox://frankadmin.ckmze581d0ht622nyrwfyaxaa-26clo' // tileset location
+	     },
+	     'source-layer': 'university-lakes-photos-map', // layer name within tileset
+	         paint: {
+	     'circle-opacity': 0.8,
+	     'circle-color': 'blue'
+	   }
+
+	   });
+	 });
+	 
+
+	 
+	   map.on("mousemove", function(e) {
+	//get the province feature underneath the mouse
+	var features = map.queryRenderedFeatures(e.point, {
+	layers: ['san']
+	});
+	//if there's a point under our mouse, then do the following.
+	if (features.length > 0) {
+	//use the following code to change the 
+	//cursor to a pointer ('pointer') instead of the default ('')
+	map.getCanvas().style.cursor = (features[0].properties.name !== null) ? 'pointer' : '';
+	}
+	//if there are no points under our mouse, 
+	//then change the cursor back to the default
+	else {
+	map.getCanvas().style.cursor = '';
+	}
+	});
+
+
+	   map.on('click', function (e) {
+	       var text = map.queryRenderedFeatures(e.point,   { layers: ['san'] });
+	       var title = text[0].properties.key;
+
+	       document.getElementById('plate').innerHTML = '<img src="https://images.mapillary.com/' + title + '/thumb-1024.jpg" height="337">';
+	   });
+
+
+	</script>
+</body>
+</html>
