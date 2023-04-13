@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html><head>
+	  
+						  
+<meta charset="utf-8"><title>I-10 BR Perkins Corridor CSS</title>
+
+ <link rel="stylesheet" href="./css/leaflet.css" />
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css" />
+<![endif]-->
+<style type="text/css">
+html, body, #graphic {
+width: 100%;
+height: 95%;
+padding: 0;
+margin: 5;
+}
+</style>
+</head>
+
+<body>
+<div id="graphic"></div>
+<script src="./js/leaflet.js" type="text/javascript"></script>
+<script src="./js/L.TileLayer.Zoomify.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+var map = L.map('graphic').setView(new L.LatLng(0,0), 0);
+
+L.tileLayer.zoomify('./', { width: 14080, height: 5350,
+						  
+						 
+tolerance: 0.8,
+attribution: 'Graphic by COREX10 for Louisiana DOTD.'
+}).addTo(map);
+
+</script>
+<center><font color="#000000" face="arial" size="2"><br>
+I-10 at Perkins Road Context Sensitive Solutions Master Plan</font> 
+<font color="#576562" face="arial" size="2">
+|  State Project No. H.04100 - April 2023<br>
+You are viewing an exhibit from the <a href="https://i10br.com/march-7-2023-open-house-exhibits/" target="_blank">March 7, 2023 public open house</a>. 
+Use your mouse to click, pan and zoom around the image. You may need to
+enlarge your web browser's window for optimal use.<br>
+Project homepage is <a href="https://i10br.com" target="_blank">I-10 BR Widening Project</a>, East and West Baton Rouge Parishes</font></center>
+</body></html>
