@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html><head>
+	  
+						  
+<meta charset="utf-8"><title>MOVEBR Florida Blvd. Corridor Enhancement</title>
+
+ <link rel="stylesheet" href="./css/leaflet.css" />
+<!--[if lte IE 8]>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css" />
+<![endif]-->
+<style type="text/css">
+html, body, #graphic {
+width: 100%;
+height: 95%;
+padding: 0;
+margin: 5;
+}
+</style>
+</head>
+
+<body>
+
+<div id="graphic"></div>
+<script src="./js/leaflet.js" type="text/javascript"></script>
+<script src="./js/L.TileLayer.Zoomify.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+var map = L.map('graphic').setView(new L.LatLng(0,0), 0);
+
+L.tileLayer.zoomify('./data/4-lane/', { width: 44556, height: 1800,
+						  
+						 
+tolerance: 0.8,
+attribution: 'Graphic by HNTB for the City of Baton Rouge - Parish of East Baton Rouge.'
+}).addTo(map);
+
+</script>
+<center><font color="#000000" face="arial" size="2"><br>
+Corridor Improvements to 4-lane segment of Florida Street, N. 22nd St. to Tuscaloosa Ave.</font> 
+<font color="#576562" face="arial" size="2">
+| January 2024<br>
+You are viewing exhibits adapted from plans displayed at the <a href="https://movebr.brla.gov/form/college-dr-corridor-enhancement-project-page" target="_blank">January 25, 2024 public open house</a>. 
+Use your mouse to click, pan and zoom around the image. You may need to
+enlarge your web browser's window for optimal use.<br>
+The official project homepage is <a href="https://movebr.brla.gov/" target="_blank">movebr.brla.gov</a></font> <br>
+<a href="../">[return to homepage]</a></center>
+</body></html>
