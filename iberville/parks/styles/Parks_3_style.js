@@ -1,7 +1,7 @@
 var size = 0;
 var placement = 'point';
 
-var style_Parks_2 = function(feature, resolution){
+var style_Parks_3 = function(feature, resolution){
     var context = {
         feature: feature,
         variables: {}
@@ -9,7 +9,7 @@ var style_Parks_2 = function(feature, resolution){
     
     var labelText = ""; 
     var value = feature.get("");
-    var labelFont = "10.4px \'Arial Narrow\', sans-serif";
+    var labelFont = "15.600000000000001px \'Arial\', sans-serif";
     var labelFill = "#323232";
     var bufferColor = "";
     var bufferWidth = 0;

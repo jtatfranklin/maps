@@ -1,7 +1,7 @@
 var size = 0;
 var placement = 'point';
 
-var style_LA_Parishes_3 = function(feature, resolution){
+var style_LA_Parishes_4 = function(feature, resolution){
     var context = {
         feature: feature,
         variables: {}
@@ -21,13 +21,13 @@ var style_LA_Parishes_3 = function(feature, resolution){
         labelText = String("");
     }
     
-        function rules_LA_Parishes_3(feature, value) {
+        function rules_LA_Parishes_4(feature, value) {
             var context = {
                 feature: feature,
                 variables: {}
             };
             // Start of if blocks and style check logic
-            if (exp_LA_Parishes_3rule0_eval_expression(context)) {
+            if (exp_LA_Parishes_4rule0_eval_expression(context)) {
                       return [ new ol.style.Style({
         stroke: new ol.style.Stroke({color: 'rgba(53,121,177,1.0)', lineDash: null, lineCap: 'square', lineJoin: 'bevel', width: 3.6479999999999997}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
@@ -39,7 +39,7 @@ var style_LA_Parishes_3 = function(feature, resolution){
                 return [];
             }
         }
-        var style = rules_LA_Parishes_3(feature, value);
+        var style = rules_LA_Parishes_4(feature, value);
         ;
 
     return style;
